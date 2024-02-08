@@ -15,6 +15,6 @@ def chat_completion(prompt):
     return answer
 
 
-def convert(prompt):
+def convert_instructions(prompt):
     response = chat_completion(prompt)
     return response
