@@ -1,19 +1,16 @@
 import os
-import openai
+from openai import OpenAI
+from dotenv import load_dotenv, dotenv_values
+load_dotenv()
+
+#ChatGPT auth
+client = OpenAI()
 
 def chat_completion(prompt):
-    openai.api_key = os.environ['CHATGPT_KEY']  # ChatGPT auth
-
     message = [{"role": "system", "content": prompt}]
-
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=message,
-    )
-
+    response = client.chat.completions.create(model="gpt-4", messages=message)
     answer = response.choices[0].message.content
     return answer
-
 
 def convert_instructions(prompt):
     response = chat_completion(prompt)
