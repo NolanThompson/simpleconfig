@@ -3,7 +3,7 @@ from openai import OpenAI
 from dotenv import load_dotenv, dotenv_values
 load_dotenv()
 
-#ChatGPT auth
+#openai auth
 client = OpenAI()
 
 def chat_completion(prompt):
